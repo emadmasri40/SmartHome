@@ -5,5 +5,5 @@
 * Emad Masri
 * Abdullah Galal
 * Marina Gerges
-*Sara Abdelkhalek
-*Shrouk Ȝamer
+* Sara Abdelkhalek
+* Shrouk Ȝamer
