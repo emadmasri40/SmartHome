@@ -34,3 +34,31 @@ __enable_irq();
 				
 				
 }
+
+
+uint8_t UART5_Available(void){
+	return ((UART5_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
+}
+
+
+uint8_t UART5_Read(void){
+	while(UART5_Available() != 1);
+	return (uint8_t)(UART5_DR_R&0xFF);
+}
+
+void UART5_Write(char data){
+	while((UART5_FR_R&UART_FR_TXFF) != 0);
+	UART5_DR_R = data;
+	
+}
+
+void send5_string(char *s)
+{
+	while(*s !=0x00)
+	{
+		UART5_Write(*s);
+		s++;
+	}
+	UART5_Write(0x0D);
+}
+

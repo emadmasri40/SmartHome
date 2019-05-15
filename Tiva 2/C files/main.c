@@ -16,7 +16,9 @@ volatile static uint32_t Result;
 void SystemInit(void){
 
     ADC0_Init();
-	UART5_Init();
+    UART5_Init();
+    SW1_Init();
+    SW2_Init();
 	  
 }
  
