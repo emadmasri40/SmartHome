@@ -62,3 +62,28 @@ void send5_string(char *s)
 	UART5_Write(0x0D);
 }
 
+void UART5_Handler()
+{
+
+	char tiva1[3];
+
+	char m;
+
+	int q = 0;
+	LCD_Cmd(0x10);
+	LCD_Cmd(0x10);
+	LCD_Cmd(0x10);
+	while (m != 0x0D)
+	{
+		while ((UART5->FR & 0x10) != 0)
+		{
+		}
+		m = UART5->DR;
+		tiva1[q++] = m;
+	}
+	LCD_Data(tiva1[0]);LCD_Cmd(0xC8); LCD_Data(tiva1[1]);LCD_Cmd(0xC8);LCD_Data(tiva1[2]);LCD_Cmd(0xC8);
+	
+	UART5->ICR |= 0x10;
+
+}
+

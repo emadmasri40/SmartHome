@@ -19,6 +19,7 @@ void SystemInit(void){
     UART5_Init();
     SW1_Init();
     SW2_Init();
+	LCD_init();
 	  
 }
  
@@ -34,6 +35,16 @@ volatile long long 	temp_c =0 ;
 	char led[7]="LED";
 	char prev[7]="LED";	
 	SystemInit();
+
+	LCD_Data('S');LCD_Cmd(0xC8); LCD_Data('i');LCD_Cmd(0xC8);LCD_Data('x');LCD_Cmd(0xC8);LCD_Data('t');LCD_Cmd(0xC8);LCD_Data('h');
+	LCD_Cmd(0xC8);
+	LCD_Data(' ');LCD_Cmd(0xC8);LCD_Data('F');LCD_Cmd(0xC8);LCD_Data('l');LCD_Cmd(0xC8);LCD_Data('e');LCD_Cmd(0xC8); LCD_Data('e'); //TEMP. NOW :
+	LCD_Cmd(0xC8);LCD_Data('t');LCD_Cmd(0xC8);LCD_Data(' ');LCD_Cmd(0xC8);LCD_Data('G');LCD_Cmd(0xC8);LCD_Data('3');LCD_Cmd(0xC8);LCD_Data('9'); //cel= 
+	LCD_Cmd(0xC8);
+	LCD_Cmd(0xC0);
+	LCD_Data('T');LCD_Cmd(0xC8); LCD_Data('E');LCD_Cmd(0xC8);LCD_Data('M');LCD_Cmd(0xC8);LCD_Data('P');LCD_Cmd(0xC8);LCD_Data('.');
+	LCD_Cmd(0xC8);LCD_Data(' ');LCD_Cmd(0xC8);LCD_Data('N');LCD_Cmd(0xC8);LCD_Data('O');LCD_Cmd(0xC8);LCD_Data('W');LCD_Cmd(0xC8); LCD_Data(':');LCD_Cmd(0xC8);//TEMP. NOW :
+	LCD_Data(' ');LCD_Cmd(0xC8);LCD_Data(' ');LCD_Cmd(0xC8);LCD_Data(' ');LCD_Cmd(0xC8);
 	
 while (1)	
 { 
