@@ -1,4 +1,5 @@
 #include <TM4C123.h>
+#include <UART1.h>
 #include "Servo.c"
 #include "Global.c"
 void INT_UART_0()
